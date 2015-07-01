@@ -1,0 +1,18 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
+<ul class="pagination">
+<li><a href="<%= request.getContextPath() %>/back/message/listAllMessageTitle.jsp" class="page gradient">回清單</a><li>
+<%if (rowsPerPage<rowNumber) {%>
+<%if(pageIndex>=rowsPerPage){%>
+<li><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage-1 %>&mid=<%= mid %>" class="page gradient">上一頁</a></li>
+<% } %>
+<%if ( pageNumber > 1) {%>
+ <%for (int i=1; i<=pageNumber; i++){%>
+ <li><a href="<%= request.getRequestURI() %>?whichPage=<%= i %>&mid=<%= mid %>" class="page gradient"><%= i %></a></li>
+
+<%}%> 
+<% } %>
+ <%if(pageIndex<pageIndexArray[pageNumber-1]){%>
+ <li><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage+1 %>&mid=<%= mid %>" class="page gradient">下一頁</a></li>
+<% } %>
+</ul>
+<% } %>

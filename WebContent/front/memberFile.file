@@ -1,0 +1,130 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.cart.controller.*" %>
+<%@ page import="com.tran.model.*" %>
+<%
+	Vector<ReqAndRes> cartList = (Vector<ReqAndRes>) request.getSession().getAttribute("cart");
+	pageContext.setAttribute("cartList", cartList);
+	List<TranVO> tranList=null;
+	
+	if(session.getAttribute("member_id")!=null){
+		TranService tranSvc=new TranService();
+		tranList=tranSvc.getOneByResMember_idUn((String)session.getAttribute("member_id"));
+		pageContext.setAttribute("tranList", tranList);
+	}	
+%>
+
+<div class="header">
+		<div class="header-top">
+			<div class="container">
+				<div class="header-grid">
+					<ul>
+						<li><a href="<%= request.getContextPath() %>/front/index/index.jsp" class="scroll"><img src="<%= request.getContextPath() %>/images/exlogo.png"></a></li>
+						<li><a href="<%= request.getContextPath() %>/front/post/post.jsp" class="scroll">公告</a></li>
+						<li><a
+							href="<%=request.getContextPath()%>/front/customerCenter/contact.jsp"
+							class="scroll">客服中心</a></li>
+                        <li><a href="<%= request.getContextPath() %>/front/member/show_one_member.jsp" class="scroll">會員專區 </a></li>
+                        <li><a
+							href="<%=request.getContextPath()%>/front/cart/cartServlet.do?action=showCart"
+							class="scroll"> 換物車<img src="<%=request.getContextPath()%>/images/car.png">
+							<c:if test="${cartList != null}">
+								<font color="red"><%=cartList.size()%></font>
+							</c:if>
+						</a></li>	
+					</ul>
+				</div> 
+				<div class="header-grid-right">
+					
+					<c:if test="${not empty sessionScope.member_id }">
+						<a href="<%= request.getContextPath() %>/front/member/show_one_member.jsp" >
+						<img src="<%= request.getContextPath() %>/showImage.do?member_id=${sessionScope.member_id}&action=member"
+							weight="50" height="50"></a>
+						<a href="<%= request.getContextPath() %>/front/member/MemberServlet.do?requestURL=<%= request.getServletPath() %>&action=logout&whichPage=<%= request.getParameter("whichPage") %>" class="sign-up">登出</a>
+						<font color="blue" size="4"><b>你好,${sessionScope.member.mem_name}</b></font></a>
+					</c:if>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<c:if test="${not empty tranList}">
+					<a href="<%=request.getContextPath()%>/front/transaction/receive.jsp"><font color="red"><b>您目前有<%= tranList.size() %>筆交易待確認</b></font></a>
+					</c:if>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		
+
+<center><div style="margin:10px; font:bold 30px Tahoma,Arial,Verdana; color:blue;  " ><img src="<%= request.getContextPath() %>/images/exicon.png">ExChange 會員中心</div></center>
+
+<div class="container">
+		<div class="header-bottom">			
+				<div class="logo">
+				<!--	<a href="index.html"><img src="<%= request.getContextPath() %>/images/exlogo.png" alt=" " ></a>-->
+				</div>
+					<div class="ad-right">
+					<!--<img class="img-responsive" src="<%= request.getContextPath() %>/images/ad.png" alt=" " >-->
+				</div>
+				<div class="clearfix"> </div>
+			</div>	
+		<div class="header-bottom-bottom">
+					<div class="top-nav">
+					<span class="menu"> </span>
+					<ul >
+						<% String url = request.getServletPath();%>
+						
+						<li id="mainMenu" 
+							<%= ("/front/member/show_one_member.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/member/updateMember.jsp".equals(url))? "class=\"active\"":"" %>
+						><a href="<%= request.getContextPath() %>/front/member/show_one_member.jsp">我的帳戶 </a></li>
+						
+						<li id="mainMenu" 
+							<%= ("/front/goods/show_goods_by_member.jsp".equals(url))? "class=\"active\"": "" %>
+							<%= ("/front/goods/update_goods_input.jsp".equals(url))? "class=\"active\"": "" %>
+							<%= ("/front/goods/addGoods.jsp".equals(url))? "class=\"active\"": "" %>
+						><a href="<%= request.getContextPath() %>/front/goods/show_goods_by_member.jsp" >商品管理</a></li>
+						
+						<li id="mainMenu" 
+							<%= ("/front/vipad/vipadArea.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/vipad/addVipad.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/vipad/showVipad.jsp".equals(url))? "class=\"active\"":"" %>
+						><a href="<%= request.getContextPath() %>/front/vipad/vipadServlet.do?action=vipadArea" >VIP專區</a></li>
+						
+						<li id="mainMenu" 
+							<%= ("/front/point/storePoint.jsp".equals(url))? "class=\"active\"":"" %>
+						><a href="<%= request.getContextPath() %>/front/point/storePoint.jsp" >我的點數</a></li>
+							
+						
+						<li id="mainMenu" 
+							<%= ("/front/transaction/transactionCenter.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/transaction/failTran.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/transaction/receive.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/transaction/successTran.jsp".equals(url))? "class=\"active\"":"" %>
+						><a href="<%= request.getContextPath() %>/front/transaction/transactionCenter.jsp" >交易管理</a></li>
+		
+						
+						<li id="mainMenu"
+							<%= ("/front/credit/newCredit.jsp".equals(url))? "class=\"active\"":"" %>
+							<%= ("/front/credit/giveCredit.jsp".equals(url))? "class=\"active\"":"" %>
+						><a
+							href="<%=request.getContextPath()%>/front/credit/newCredit.jsp">信用評價</a></li>
+						
+						<li id="mainMenu" 
+							<%= ("/front/favorite/showFavorite.jsp".equals(url))? "class=\"active\"":"" %>
+						><a href="<%= request.getContextPath() %>/front/favorite/showFavorite.jsp" >我的收藏</a></li>
+						
+					</ul>	
+				<script>
+					$("span.menu").click(function(){ 
+						$(".top-nav ul").slideToggle(500, function(){
+						});
+					});
+				</script>
+					    
+					<div class="clearfix"> </div>			
+				</div>
+				
+				<div class="clearfix"> </div>
+				</div>
+		</div>
+	</div>
+	<!--content-->
+	<div class="content">
+		<div class="container">

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.member.model.MemberVO" table="ex_member" >
+			
+			<id name="member_id" column="member_id">
+				 <generator class="com.member.model.MemberSequenceGenerator" ></generator>
+			</id>
+			
+			<property name="email" column="email" />
+			<property name="mem_name" column="mem_name" />
+			<property name="password" column="password" />
+			<property name="id_no" column="id_no" />
+			<property name="tel" column="tel" />
+			<property name="address" column="address" />
+			<property name="birthday" column="birthday" />
+			<property name="joindate" column="joindate" insert="false"  />
+			<property name="pic" column="pic" />
+			<property name="credit" column="credit"  insert="false"/>
+			<property name="having_p" column="having_p" insert="false" />
+			<property name="pending_p" column="pending_p" insert="false" />
+			<property name="mem_status" column="mem_status" insert="false" />
+			<property name="my_wish" column="my_wish" />
+		
+	</class>
+</hibernate-mapping>

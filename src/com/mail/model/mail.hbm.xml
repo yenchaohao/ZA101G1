@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.mail.model.MailVO" table="EX_MAIL" >
+        
+        <id name="cmid" column="cmid">
+          <generator class="sequence" >
+              <param name="sequence">ex_mail_seq</param>
+            </generator>  
+          </id>
+     
+        <property name="member_id" column="member_id" />
+        <property name="empid" column="empid" />
+        <property name="title" column="title" />
+        <property name="question" column="question" />
+        <property name="answer" column="answer" />
+        <property name="q_date" column="q_date"  insert="false"/>
+        <property name="a_date" column="a_date" />
+        <property name="status" column="status" />
+     
+    </class>
+</hibernate-mapping>

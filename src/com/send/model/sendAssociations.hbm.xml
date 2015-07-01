@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.send.model.SendVOAssociations" table="ex_send">
+		<id	name="sid" column="sid">
+			<generator class="sequence">
+				<param name="sequence">
+					ex_send_seq
+				</param>
+			</generator>
+		</id>
+		
+	<property name="gid" column="gid" />
+	<property name="tid" column="tid" />
+	<property name="start_date" column="start_date" />
+	<property name="end_date" column="end_date" />	
+	<property name="status" column="status" insert="false" />	
+	
+	<many-to-one name="membervo" class="com.member.model.MemberVOAssociations" lazy="false">
+           		 <column name="member_id" />
+    </many-to-one> 
+	
+	</class> 
+</hibernate-mapping>

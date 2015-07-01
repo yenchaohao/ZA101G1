@@ -1,0 +1,30 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
+						<ul class="grid_1">
+							<li class="grid_1-img" style="width:150px;">
+								<img src="<%= request.getContextPath() %>/showImage.do?gid=${goodsVO.gid}&action=goods" style="width:150px; height:150px;">
+							</li>
+							<li class="grid_1-img" style="width:150px;">
+								<p><label style=" width: 100px;">商品名稱:</label></p>
+								<p><b><font size="5" color="blue">${goodsVO.g_name}</font></b></p>
+								<p><label style=" width: 100px;">商品押金:</label></p>
+								<p><b><font size="5" color="red">${goodsVO.g_price}</font></b></p>
+							</li>
+							<li class="grid_1-img" style="width:150px;">
+								<c:forEach var="groupVO" items="${groupSvc.all}">
+									<c:if test="${goodsVO.groupid == groupVO.groupid}">
+										<p style=" width: 500px;"><label style=" width: 100px;">商品類別:</label>${groupVO.group_name}</p>
+									</c:if>
+								</c:forEach>
+								<p style=" width: 250px;"><label style=" width: 100px;">外觀等級:</label>${goods_level[goodsVO.g_level]}</p>
+								<p style=" width: 250px;"><label style=" width: 100px;">商品狀態:</label>${goods_status[goodsVO.goods_status]}</p>
+								<c:if test="${ goodsVO.goods_status != 0  }">
+									<p style=" width: 300px;"><label style=" width: 100px;">上架日期:</label><font color="red">${goodsVO.getJoindateFormat()}</font></p>
+									<p style=" width: 300px;"><label style=" width: 100px;">下架日期:</label><b><font color="red">${goodsVO.getQuitdateFormat()}</font></b></p>
+								</c:if>
+								<p style=" width: 500px;"><label style=" width: 100px;">商品描述:</label>${goodsVO.g_describe}</p>
+							</li>
+							<li class="grid_1-img" style="width:150px; margin-left:200px;" >
+								<p style="margin-top:50px;"><input type="checkbox" name="box" value="${goodsVO.gid}" style="width:50px;height:50px;" class="checkmark box icon"></p>
+							</li>
+							<div class="clearfix"> </div>
+						</ul>

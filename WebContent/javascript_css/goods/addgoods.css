@@ -1,0 +1,51 @@
+@CHARSET "BIG5";
+label{
+    width:150px;
+    display:inline-block;
+    margin: 5px;
+    font:14px Tahoma,Arial,Verdana;
+     margin-top: 10px; 
+}
+#submit{
+	 width:50px;
+}
+input{
+    margin:3px;
+     font-size:15px;
+}
+
+#registerForm{
+	padding: 5px;
+}
+button{
+	 margin: 5px;
+}
+#detailInfo{
+	float:right; 
+	margin-right:700px; 
+	margin-top:100px;
+}
+#bg{
+	display:none;
+	 	position:fixed;
+		 width:100%;
+		 height:100%;
+	 	background:#000;
+		 z-index:2;
+		 top:0;
+		 left:0;
+	 	opacity:0.5;
+}
+#content{
+	 overflow: scroll;
+	 display:none;
+		 width:1100px;
+		 height:700px;
+		 position:fixed;
+		 top:35%;
+		 margin-top:-270px;
+		 background:#fff;
+		 z-index:3;
+		 left:35%;
+		 margin-left:-450px;
+}

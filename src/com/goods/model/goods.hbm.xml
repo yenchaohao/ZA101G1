@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+	<class name="com.goods.model.GoodsVO" table="ex_goods">
+		<id name="gid" column="gid">
+			<generator class="sequence">
+				<param name="sequence">ex_goods_seq</param>
+			</generator>
+		</id>
+
+		<property name="groupid" column="groupid" />
+		<property name="member_id" column="member_id" />
+		<property name="g_name" column="g_name" />
+		<property name="g_describe" column="g_describe" />
+		<property name="g_price" column="g_price" />
+		<property name="g_level" column="g_level" />
+		<property name="g_hot" column="g_hot"  insert="false"/>
+		<property name="joindate" column="joindate" />
+		<property name="quitdate" column="quitdate" />
+		<property name="pic" column="pic" />
+		<property name="goods_status" column="goods_status" insert="false"/>
+	</class>
+	
+	
+	
+</hibernate-mapping>

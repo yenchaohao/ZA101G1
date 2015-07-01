@@ -1,0 +1,63 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%  //int rowPerPage = 3; //瘥�����
+	//int rowNumber = 0;  //蝮賜���
+	//int pageNumber = 0;	//蝮賡���
+	//int whichPage = 1; //蝚砍嗾��
+	//int[] pageIndexArray = null;
+	//int pageIndex = 0;
+%>
+<table border="0">
+	<tr>
+
+<% //�斗"瘥�閬�閬＊蝷箇�蝑"�臬瘥�蝮賜���撠�憒��臭誨銵券��Ｘ����誑銝��銵�誑銝�撘Ⅳ�Ｙ������血�銝銵��芷＊蝷箔���) %>
+<%	if(rowPerPage < rowNumber){%>
+	<%	/*	
+			蝮賢��0蝑���閰�: pageIndex = 0,3,6,10  (4 �摮��嗡葉銝��)
+			��page1.file ��pageIndexArray[] 靘"蝮賜����支誑"瘥�閬＊蝷箇�蝑" �� �����抒洵銝��鞈��楊蝣� 0,3,6,10 )
+			摮pageIndexArray[]���銝� 
+			�嗅�����whichPage ��霈隞�”雿輻����函��,隞仿����貊蝝Ｗ��曉pageIndexArray[]銝�
+			�喳��"雿輻����"(whichPage)蝚砌�蝑���蝺函Ⅳ.銋停�皰ageIndex.
+		 */
+		 //"�����抒洵銝��鞈��楊蝣��臬瘥�瘥�閬�閬＊蝷箇�蝑" 憭�憒��臭誨銵典隞亙��唬�銝�� %>
+		<%if(pageIndex >= rowPerPage){ %>
+				<td><a href="<%= request.getRequestURI() %>?whichPage=1>">�喟洵銝��</a></td>	
+				<td><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage-1 %>">銝���/a></td>
+		<%}%>
+		
+		<% if(pageIndex < pageIndexArray[pageNumber-1]) {%>
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage+1 %>" >銝���/a></td>
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%=pageNumber%>" >����/a></td>
+		<%}%>
+	<%	} %>
+	
+	<input type="hidden" name="action" value="ChangeStatusRequest">
+	<input type="hidden" name="whichPage" value="<%=whichPage%>">
+	<input type="hidden" name="requestURL"
+		value="<%=request.getServletPath()%>">
+	<input type="submit" value="蝣箄�">
+	
+	</form>
+
+
+
+	</tr>
+</table>
+
+<table border="0">
+	<tr>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</td>
+		<form action="<%=request.getRequestURI()%>" method="post">
+			<select name="whichPage">
+				<% for(int i = 0 ;i < pageNumber ; i++){ %>
+					<option value="<%= i+1 %>">頝唾蝚�%= i+1 %>��
+				<%}%>
+			</select>
+			<input type="hidden" name="whichPage" value="<%= whichPage %>">	
+		</form>
+	
+	
+	</tr>
+
+</table>

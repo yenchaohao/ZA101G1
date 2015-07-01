@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.authority.model.AuthorityVO" table="ex_authority" >
+        
+        <composite-id>
+			<key-property name="empid" column="empid" type="string" />
+			<key-property name="aid" column="aid" type="integer" />
+		</composite-id>
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.post.model.PostVO" table="EX_POST" >
+        
+        <id name="pid" column="pid">
+          <generator class="sequence" >
+              <param name="sequence">ex_post_seq</param>
+            </generator>  
+          </id>
+     
+        <property name="empid" column="empid" />
+        <property name="title" column="title" />
+        <property name="post" column="post" />
+        <property name="postdate" column="postdate" insert="false" />
+        <property name="pic" column="pic" />
+     
+    </class>
+</hibernate-mapping>

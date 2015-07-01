@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.emp.model.EmpVO" table="ex_emp" >
+        
+        <id name="empid" column="empid">
+            <generator class="com.emp.model.EmpSequenceGenerator" ></generator>  
+        </id>
+        
+        <property name="ename" column="ename" />
+        <property name="password" column="password" />
+        <property name="hiredate" column="hiredate" />
+        <property name="pic" column="pic" />
+        <property name="email" column="email" />
+        <property name="status" column="status" />
+        
+    </class>
+</hibernate-mapping>

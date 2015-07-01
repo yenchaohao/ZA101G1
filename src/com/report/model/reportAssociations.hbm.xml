@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	
+	<class name="com.report.model.ReportVOHibernate" table="ex_report">
+			<id name="rid" column="rid">
+				<generator class="sequence">
+					<param name="sequence">ex_post_seq</param>
+				</generator>
+			</id>
+	
+			
+			<property name="member_id" column="member_id" />
+			<property name="r_date" column="r_date" insert="false"/>
+			
+			 <many-to-one name="goodsvo" class="com.goods.model.GoodsVOHibernate" lazy="false">
+           		 <column name="gid" />
+       		</many-to-one>
+	</class>
+	
+</hibernate-mapping>

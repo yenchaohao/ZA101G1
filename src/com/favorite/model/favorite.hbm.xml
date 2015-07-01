@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.favorite.model.FavoriteVO" table="ex_favorite" >
+        
+        <id name="fid" column="fid">
+            <generator class="sequence" >
+              <param name="sequence">ex_favorite_seq</param>
+            </generator>  
+        </id>
+        
+        <property name="gid" column="gid" />
+        <property name="member_id" column="member_id" />
+        <property name="joindate" column="joindate" insert="false" />
+        
+    </class>
+</hibernate-mapping>

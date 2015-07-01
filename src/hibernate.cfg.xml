@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+
+ 		<!-- JNDI連線池 (Apache Tomcat 連線池DBCP)設定 -->
+		<property name="hibernate.connection.datasource">java:/comp/env/jdbc/G1Local</property>
+        
+		<!--SQL方言,以下使用Oracle -->
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+
+		<!--是否要顯示實際操作資料庫時的SQL -->
+		<property name="hibernate.show_sql">false</property>
+
+        <!-- Disable the second-level cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!--交易管理類型, 以下使用JDBC Transaction -->
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+		<!--Java物件與資料庫表格的映射檔 -->
+		<!--益營 -->
+		<mapping resource="com/member/model/member.hbm.xml" />
+		<mapping resource="com/goods/model/goods.hbm.xml" /> 
+		<mapping resource="com/goodsimage/model/goodsimage.hbm.xml" />
+		<mapping resource="com/send/model/send.hbm.xml" />
+		<!-- group -->
+		<mapping resource="com/report/model/report.hbm.xml" />
+		<!--圳煌 -->
+			<!-- send -->
+			<mapping resource="com/post/model/post.hbm.xml" />
+		<!--京哲 -->
+			<!--message -->
+			<mapping resource="com/message/model/message.hbm.xml" />
+			<!--remessage -->
+			<mapping resource="com/remessage/model/remessage.hbm.xml" />
+			<!--tran -->
+			<mapping resource="com/tran/model/tran.hbm.xml" />
+			<!--credit -->
+			<mapping resource="com/credit/model/credit.hbm.xml" />
+			<!--mail -->
+			<mapping resource="com/mail/model/mail.hbm.xml" />
+			<!--serial -->
+			<mapping resource="com/serial/model/serial.hbm.xml" />
+		<!--崇豪 -->
+		<mapping resource="com/emp/model/emp.hbm.xml" />
+		<mapping resource="com/vipad/model/vipad.hbm.xml" />
+		<mapping resource="com/favorite/model/favorite.hbm.xml" />
+		<mapping resource="com/authority/model/authority.hbm.xml" />
+		<mapping resource="com/authority_list/model/authority_list.hbm.xml" />
+		
+		<!-- 第七版的映射檔Associations -->
+		<!--益營 -->
+		<mapping resource="com/goods/model/goodsAssociations.hbm.xml" />
+		<mapping resource="com/report/model/reportAssociations.hbm.xml" />
+		<mapping resource="com/send/model/sendAssociations.hbm.xml" />
+		<mapping resource="com/member/model/memberAssociations.hbm.xml" />
+		<!--崇豪 -->
+		<mapping resource="com/vipad/model/vipadAssociations.hbm.xml" />
+			
+	</session-factory>
+	
+</hibernate-configuration>

@@ -1,0 +1,24 @@
+ <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ <!-- Modal -->
+<div class="modal fade" id="report" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">請輸入檢舉原因</h4>
+      </div>
+      <form method="post" action="<%=request.getContextPath()%>/front/report/report.do"
+		<div class="modal-body">
+				<textarea class="form-control" rows="3" name="reason"></textarea>
+					<input type="hidden" name="gid" value="<%= gid %>">
+					<input type="hidden" name="url" value="<%=request.getServletPath()%>">
+					<input type="hidden" name="action" value="addReport">
+		</div>
+		<div class="modal-footer"  style="background-color:white;">
+			<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+			<input type="submit" class="btn btn-primary" >
+		</div>
+	  </form>
+    </div>
+  </div>
+</div> 

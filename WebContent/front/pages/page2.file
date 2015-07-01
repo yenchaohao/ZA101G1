@@ -1,0 +1,27 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
+<%if (rowsPerPage<rowNumber) {%>
+<%if(pageIndex>=rowsPerPage){%>
+<form action="<%= request.getRequestURI() %>" method="post" style="float:left;">
+	<input type="submit" value="上一頁">
+	<input type="hidden" name="whichPage" value="<%= whichPage-1 %>">
+	<input type="hidden" name="mid" value="<%= mid %>">
+</form>
+<% } %>
+<%if ( pageNumber > 1) {%>
+ <%for (int i=1; i<=pageNumber; i++){%>
+<form action="<%= request.getRequestURI() %>" method="post" style="float:left;">
+	<input type="submit" value="<%= i %>">
+	<input type="hidden" name="whichPage" value="<%= i %>">
+	<input type="hidden" name="mid" value="<%= mid %>">
+</form>
+<%}%> 
+<% } %>
+ <%if(pageIndex<pageIndexArray[pageNumber-1]){%>
+<form action="<%= request.getRequestURI() %>" method="post">
+	<input type="submit" value="下一頁">
+	<input type="hidden" name="whichPage" value="<%= whichPage+1 %>">
+	<input type="hidden" name="mid" value="<%= mid %>">
+</form>
+<% } %>
+<% } %>
+<% pageContext.setAttribute("whichPage",whichPage); %>

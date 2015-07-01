@@ -1,0 +1,22 @@
+@CHARSET "BIG5";
+label{
+    width:150px;
+    display:inline-block;
+    margin: 5px;
+    font:14px Tahoma,Arial,Verdana;
+     margin-top: 10px; 
+}
+#submit{
+	 width:50px;
+}
+input{
+    margin:3px;
+     font-size:15px;
+}
+
+#registerForm{
+	padding: 5px;
+}
+button{
+	 margin: 5px;
+}

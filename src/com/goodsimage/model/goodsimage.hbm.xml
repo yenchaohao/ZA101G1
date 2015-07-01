@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.goodsimage.model.GoodsImageVO" table="ex_goodsimage">
+		<id name="pic_number" column="pic_number">
+			<generator class="sequence">
+				<param name="sequence">ex_goodsimage_seq</param>
+			</generator>
+		</id>
+		
+		<property name="pic" column="pic" />
+		<property name="gid" column="gid" />
+		
+	</class>
+</hibernate-mapping>

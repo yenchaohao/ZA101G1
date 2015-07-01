@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.tran.model.TranVO" table="EX_TRAN" >
+        
+        <id name="tid" column="tid">
+          <generator class="sequence" >
+              <param name="sequence">ex_tran_seq</param>
+            </generator>  
+          </id>
+     
+        <property name="res_member_id" column="res_member_id" />
+        <property name="res_gid" column="res_gid" />
+        <property name="req_member_id" column="req_member_id" />
+        <property name="req_gid" column="req_gid" />
+        <property name="res_date" column="res_date"   insert="false"/>
+        <property name="req_date" column="req_date"  insert="false"/>
+        <property name="status" column="status"  insert="false"/>
+     
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,57 @@
+<HTML>
+<HEAD><TITLE>MemberServlet測試</TITLE></head>
+<BODY>
+	
+  <H3>從member_id 抓 goodsVOList</H3>
+  <FORM action="androidGoodsServlet.do" method=post>
+  
+  		<input type="text" name="action" value="findByMember_id"></br>
+  		<input type="text" name="member_id" value="M1001"></br>
+		
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>從GroupRequest 抓 goodsVOList</H3>
+  <FORM action="androidGoodsServlet.do" method=post>
+  
+  		<input type="text" name="action" value="Group"></br>
+  		<input type="text" name="groupid" value="0"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>收尋商品</H3>
+  <FORM action="androidGoodsServlet.do" method=post>
+  
+  		<input type="text" name="action" value="Search"></br>
+  		
+  		<input type="text" name="groupid" value="0"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>來自 GoodsInfoActivity 找商品詳情及會員資料</H3>
+  <FORM action="androidGoodsServlet.do" method=post>
+  
+  		<input type="text" name="action" value="goodsInfo"></br>
+  		
+  		<input type="text" name="gid" value="1001"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  
+  
+  <H3>註冊會員</H3>
+  <FORM action="androidGoodsServlet.do" method=post enctype="multipart/form-data">
+  
+  		<input type="text" name="dao" value="add"></br>
+  		<input type="text" name="memberId" value="abc123"></br>
+
+  		<input type="file" name="upfile1"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+
+</BODY>
+</HTML>

@@ -1,0 +1,55 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
+<%  //int rowPerPage = 3; //每頁的筆數
+	//int rowNumber = 0;  //總筆數
+	//int pageNumber = 0;	//總頁數
+	//int whichPage = 1; //第幾頁
+	//int[] pageIndexArray = null;
+	//int pageIndex = 0;
+%>
+<table border="0">
+	<tr>
+
+<% //判斷"每頁要求要顯示的筆數"是否比"總筆數"少(如果是代表頁面會有一頁以上,則執行產生以下程式碼產生的按鈕;否則不執行,只顯示一頁.) %>
+<%	if(rowPerPage < rowNumber){%>
+	<%	/*	
+			總共有10筆資料的話 : pageIndex = 0,3,6,10  (4 個數字的其中一個)
+			透過page1.file 的 pageIndexArray[] 依照"總筆數"除以"每頁要顯示的筆數" 取得 各個分頁內第一筆資料的編碼( 0,3,6,10 )
+			存入pageIndexArray[]陣列中. 
+			然後再透過 whichPage 這個變數代表使用者目前所在的頁數,以這個變數為索引放到pageIndexArray[]中,
+			即可取得"使用者目前的頁面"(whichPage)第一筆資料的編碼.也就是pageIndex.
+		 */
+		 //"各個分頁內第一筆資料的編碼"是否比"每頁要求要顯示的筆數" 大,如果是代表可以回到上一頁 %>
+		<%if(pageIndex >= rowPerPage){ %>
+				<td><a href="<%= request.getRequestURI() %>?whichPage=1>">至第一頁</a></td>	
+				<td><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage-1 %>">上一頁</a></td>
+		<%}%>
+		
+		<% if(pageIndex < pageIndexArray[pageNumber-1]) {%>
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage+1 %>" >下一頁</a></td>
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%=pageNumber%>" >最末頁</a></td>
+		<%}%>
+	<%	} %>
+	
+
+	</tr>
+</table>
+<% pageContext.setAttribute("whichPage",whichPage); %>
+<table border="0">
+	<tr>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<form action="<%=request.getRequestURI()%>" method="post">
+			<select name="whichPage" style="float:left;">
+				<% for(int i = 0 ;i < pageNumber ; i++){ %>
+					<option value="<%= i+1 %>">跳至第<%= i+1 %>頁
+				<%}%>
+			</select>
+			<input type="hidden" name="whichPage" value="<%= whichPage %>">	
+			<input type="submit" value="確定" style="float:left; margin-left:5px;" class="btn btn-info btn-xs">
+		</form>
+	
+	
+	</tr>
+
+</table>

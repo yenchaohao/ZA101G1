@@ -1,0 +1,46 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
+<%  //int rowPerPage = 6; //每頁的筆數
+	//int rowNumber = 0;  //總筆數
+	//int pageNumber = 0;	//總頁數
+	//int whichPage = 1; //第幾頁
+	//int[] pageIndexArray = null;
+	//int pageIndex = 0;
+%>
+
+<table border="0">
+	<tr>
+	<% if(rowPerPage < rowNumber){ %>
+		
+		<% if(pageIndex >= rowPerPage){  %>
+			<td><a href="<%= request.getRequestURI()%>?whichPage= 1">返回第一頁</a></td>
+			<td><a href="<%= request.getRequestURI()%>?whichPage=<%= whichPage - 1 %>" >上一頁</a></td>
+		<%}%>
+		<% if(pageIndex < pageIndexArray[pageNumber - 1]) { %>
+			
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%= whichPage + 1 %>">下一頁</a></td>
+			<td><a href="<%= request.getRequestURI() %>?whichPage=<%= pageNumber  %>">最末頁</a></td>
+		<%}%>
+	<%}%>
+		
+	</tr>
+		<% pageContext.setAttribute("whichPage",whichPage); %>
+</table>
+		
+<table border="0">
+	<tr>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		
+		<form action="<%=request.getRequestURI()%>" method="post">
+			<select name="whichPage">
+				<% for(int i = 0 ;i < pageNumber ; i++){ %>
+					<option value="<%= i+1 %>">跳至第<%= i+1 %>頁
+				<%}%>
+			</select>
+			<input type="submit" value="確定">
+		</form>
+	
+	
+	</tr>
+
+</table>

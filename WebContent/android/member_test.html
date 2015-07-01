@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>MemberServlet測試</TITLE>
+</head>
+<BODY>
+	
+  <H3>是否是會員測試</H3>
+  <FORM action="androidMemberServlet.do" method=post>
+  
+  		<input type="text" name="action" value="isMember"></br>
+  		<input type="text" name="email" value="A@gmail.com"></br>
+		<input type="text" name="password" value="A1"></br>
+		
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>會員帳號是否存在檢查</H3>
+  <FORM action="androidMemberServlet.do" method=post>
+  
+  		<input type="text" name="action" value="isMemberIdExist"></br>
+  		<input type="text" name="email" value="A@gmail.com"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>註冊會員</H3>
+  <FORM action="androidMemberServlet.do" method=post enctype="multipart/form-data">
+  
+  		<input type="text" name="dao" value="add"></br>
+  		<input type="text" name="memberId" value="abc123"></br>
+
+  		<input type="file" name="upfile1"></br>
+				
+        <INPUT type="submit" value="上傳">
+  </FORM>
+  
+  <H3>我的願望(複合查詢)</H3>
+  <FORM action="androidMemberServlet.do" method=post>
+  
+ 		<input type="text" name="action" value="wishSearch"></br>
+ 		
+ 		<label for="groupid">選擇願望類別:</label>
+ 		<select name="groupid">
+ 			<option value="0">請選擇</option>
+ 			<option value="1">3C</option>
+ 			<option value="2">服飾與配件</option>
+ 			<option value="3">運動</option>
+ 			<option value="4">書籍</option>
+ 			<option value="5">音樂與影片</option>
+		</select></br>
+		
+		<label for="my_wish">願望關鍵字:</label>
+  		<input type="text" name="my_wish" value="手機"></br>
+  		
+  		<label for="mem_name">會員名稱:</label>
+  		<input type="text" name="mem_name" value="A"></br>
+			
+        <INPUT type="submit" value="送出查詢">
+  </FORM>
+
+</BODY>
+</HTML>
